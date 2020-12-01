@@ -1,6 +1,7 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <PDFDocument :url="url" :scale="scale"/>
   <div id="tui-image-editor" ref='editor' style="width: 100%;height: 100vh;"></div>
 </template>
 
@@ -8,22 +9,30 @@
 import { ref, reactive} from "vue";
 import { onMounted, onUnmounted } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
+
+import PDFDocument from './components/PDFDocument.vue'
+
 var ImageEditor = require('tui-image-editor');
+
 const Pace = require('pace-js/pace.min.js');
 global.Pace=Pace;
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    PDFDocument
   },
   setup() {
     Pace.start();
+    const url = ref('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf')
+    const scale = ref(2)
     const useDefaultUI = ref(true);
     const options = reactive({ 
       cssMaxWidth: 700,
       cssMaxHeight: 500,
     })
     const editor = ref(null)
+    
     onMounted(() => {
      new ImageEditor(editor.value, {
           includeUI: {
@@ -38,11 +47,13 @@ export default {
           }
       });
      console.log(editor.value)
+     // initPDF()
+
     })
     onUnmounted(() => {
       console.log(editor)
     })
-    return { useDefaultUI, options, editor, Pace };
+    return { useDefaultUI, options, editor, Pace, url, scale };
   }
 }
 </script>
@@ -58,5 +69,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#the-canvas {
+  border:1px solid black;
 }
 </style>

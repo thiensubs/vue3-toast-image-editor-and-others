@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "json-stringify-safe": "^5.0.1",
     "pace": "^0.0.4",
     "pace-js": "^1.0.2",
+    "pdfjs-dist": "^2.5.207",
     "tui-image-editor": "^3.10.1",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "worker-loader": "2.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
