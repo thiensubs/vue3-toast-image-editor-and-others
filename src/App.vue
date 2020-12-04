@@ -2,6 +2,7 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <HelloWorld msg="Welcome to Your Vue.js App"/>
   <PDFDocument :url="url" :scale="scale"/>
+  
   <div id="tui-image-editor" ref='editor' style="width: 100%;height: 100vh;"></div>
 </template>
 
@@ -20,12 +21,12 @@ export default {
   name: 'App',
   components: {
     HelloWorld,
-    PDFDocument
+    PDFDocument,
   },
   setup() {
     Pace.start();
-    const url = ref('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf')
-    const scale = ref(2)
+    const url = ref('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf')
+    const scale = ref(1)
     const useDefaultUI = ref(true);
     const options = reactive({ 
       cssMaxWidth: 700,

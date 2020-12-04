@@ -1,62 +1,73 @@
 <template>
   <div class="pdf-document">
-    <PDFPage
+    <pdf-page
       v-for="page_single in pages"
-      v-bind:page="page_single"
-      v-bind:scale="scale"
+      v-bind="{scale}"
       :key="page_single.pageNumber"
-    />
+      :page="page_single"
+    >
+    </pdf-page>
   </div>
 </template>
 
 <script>
-const pdfjsWorker = import('pdfjs-dist/build/pdf.worker.entry');
 var pdfjsLib = require('pdfjs-dist/build/pdf')
 global.pdfjsLib = pdfjsLib
 window.pdfjsLib = pdfjsLib
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-import PDFPage from './PDFPage.vue'
+import PDFJSWorker from '!!file-loader!pdfjs-dist/build/pdf.worker.min.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJSWorker;
+
+import PDFPage from './PDFPage.vue';
+import {ref, watch} from 'vue'
 export default {
-  props: ['url', 'scale'],
+  props: {
+    url: {
+      type: String,
+      required: true,
+    },
+    scale: {
+      type: Number,
+      default: 1.0,
+    },
+  },
   name: 'PDFDocument',
   component: {
     PDFPage,
   },
-  data() {
-    return {
-      pdf: undefined,
-      pdfDoc: null,
-      pages: [],
-    };
-  },
-  created() {
-    this.initPDF();
-  },
-
-  methods: {
-    initPDF(){
+  setup(props) {
+    let pdfDoc= ref(null)
+    let pages = ref([])
+    function initPDF(){
       // Asynchronous download of PDF
-      var loadingTask = pdfjsLib.getDocument(this.url);
+      var loadingTask = pdfjsLib.getDocument(props.url);
       loadingTask.promise.then(pdfDoc_ => {
-        this.pdfDoc =pdfDoc_;
+        pdfDoc.value =pdfDoc_;
       })
-    },
-  },
-  watch: {
-    pdfDoc(pdfDoc) {
-      this.pages = [];
+    }
+    initPDF()
+    function assign_list(source_list){
+      pages.value = source_list
+    }
+    watch(pdfDoc, (new_value) => {
+      // pages = [];
       var array_pages = [];
-      for (var i = 0; i < pdfDoc.numPages; i++) {
+      for (var i = 0; i < new_value.numPages; i++) {
         array_pages.push(i+1)
       }
-      const promises = array_pages.map(number => pdfDoc.getPage(number));
+      const promises = array_pages.map(number => new_value.getPage(number));
       Promise.all(promises).
-        then(pages => {
-          console.log(pages)
-          this.pages = pages        
+        then(function (doc) {assign_list(doc)}).
+        catch(function (err) {
+          console.log(err);
         });
-      console.log(this.pages)
-    },
+    })
+   
+    return {
+     pdfDoc,
+     pages,
+     initPDF,
+     assign_list
+    };
   },
 };
 </script>
