@@ -1,0 +1,13 @@
+import { createRouter, createWebHistory } from "vue-router";
+const HelloWorld = () => import('./HelloWorld.vue');
+const PDFDocument = () => import('./PDFDocument.vue');
+const TuiImageEditor = () => import('./TuiImageEditorComponent.vue');
+export default createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: HelloWorld  }, 
+    { path: '/hello', name: 'hello', component: HelloWorld },
+    { path: '/pdf-document', name: 'pdf', component: PDFDocument, props: true },
+    { path: '/image-editor', name: 'editor', component: TuiImageEditor, props: true },
+  ]
+});

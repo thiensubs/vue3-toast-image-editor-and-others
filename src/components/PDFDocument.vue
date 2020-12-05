@@ -1,5 +1,16 @@
 <template>
-  <div class="pdf-document">
+  <div class="form-input-url">
+    <form @reset="onReset" ref="form_input" class="pure-form pure-form-stacked" @submit.prevent="onSubmit">
+      <div class="form-group">
+        <label for="url">Url pdf address, example: https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf</label>
+        <input type="text" class="form-control pure-u-1" id="url" v-model="form.url" ref="url" aria-describedby="emailHelp" placeholder="https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf">
+      </div>
+      <fieldset class="pure-group">
+        <button type="submit" class="pure-button pure-button-primary pure-u-1-5">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+  <div class="pdf-document" v-if="pages.length > 0">
     <pdf-page
       v-for="page_single in pages"
       v-bind="{scale}"
@@ -18,38 +29,63 @@ import PDFJSWorker from '!!file-loader!pdfjs-dist/build/pdf.worker.min.js';
 pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJSWorker;
 
 import PDFPage from './PDFPage.vue';
-import {ref, watch} from 'vue'
+import {ref, watch, reactive} from 'vue'
 export default {
-  props: {
-    url: {
-      type: String,
-      required: true,
-    },
-    scale: {
-      type: Number,
-      default: 1.0,
-    },
-  },
   name: 'PDFDocument',
   component: {
     PDFPage,
   },
-  setup(props) {
+  setup() {
+    const form = reactive({
+      url: "",
+    })
+    const scale = ref(1.0)
     let pdfDoc= ref(null)
     let pages = ref([])
     function initPDF(){
       // Asynchronous download of PDF
-      var loadingTask = pdfjsLib.getDocument(props.url);
-      loadingTask.promise.then(pdfDoc_ => {
-        pdfDoc.value =pdfDoc_;
-      })
+      if (form.url.length){
+        getBinaryData(form.url)
+        // var loadingTask = pdfjsLib.getDocument(form.url);
+        // loadingTask.promise.then(pdfDoc_ => {
+        //   pdfDoc.value = pdfDoc_;
+        // })
+      }
+      
+    }
+    function onSubmit() {
+      pdfDoc.value = null;
+      initPDF()
     }
     initPDF()
     function assign_list(source_list){
       pages.value = source_list
     }
+    function getBinaryData (url) {
+        // body...
+        var xhr = new XMLHttpRequest();
+        // xhr.setRequestHeader("Origin", window.location.hostname);
+        xhr.open('GET', url, true);
+        xhr.responseType = 'arraybuffer';
+        xhr.onload = function(e) {
+            //binary form of ajax response,
+            var loadingTask = pdfjsLib.getDocument(e.currentTarget.response);
+            loadingTask.promise.then(pdfDoc_ => {
+              pdfDoc.value = pdfDoc_;
+            })
+        };
+
+        xhr.onerror = function  () {
+            // body...
+            alert("xhr error");
+        }
+
+        xhr.send();
+    }
     watch(pdfDoc, (new_value) => {
-      // pages = [];
+      
+      if (new_value===null)
+        return 
       var array_pages = [];
       for (var i = 0; i < new_value.numPages; i++) {
         array_pages.push(i+1)
@@ -61,12 +97,23 @@ export default {
           console.log(err);
         });
     })
+    watch(form, (new_value) => {
+        console.log(new_value)
+      },
+      {
+        immediate: true,
+        deep: true,
+      }
+    )
    
     return {
      pdfDoc,
      pages,
      initPDF,
-     assign_list
+     assign_list,
+     onSubmit,
+     scale,
+     form
     };
   },
 };

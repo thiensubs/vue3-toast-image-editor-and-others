@@ -2,7 +2,7 @@
   <canvas ref="myCanvas" v-bind="canvasAttrs"></canvas>
 </template>
 <script>
-import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 export default {
   props: ['page', 'scale'],
   inheritAttrs: false,
@@ -14,6 +14,7 @@ export default {
     let canvasStyle =  computed(() => {
       const {width: actualSizeWidth, height: actualSizeHeight} = actualSizeViewport.value;
       const pixelRatio = window.devicePixelRatio || 1;
+      console.log(window.devicePixelRatio)
       const [pixelWidth, pixelHeight] = [actualSizeWidth, actualSizeHeight].map(dim => Math.ceil(dim / pixelRatio));
       return `width: ${pixelWidth}px; height: ${pixelHeight}px;`
     })
@@ -57,7 +58,7 @@ export default {
     onMounted(() => {
       renderPage();
     })
-    onUnmounted(() => {
+    onBeforeUnmount(() => {
       destroyPage(props.page);
     })
 

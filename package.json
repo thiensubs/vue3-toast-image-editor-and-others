@@ -13,8 +13,12 @@
     "pace": "^0.0.4",
     "pace-js": "^1.0.2",
     "pdfjs-dist": "^2.5.207",
+    "purecss": "^2.0.3",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "tui-image-editor": "^3.10.1",
     "vue": "^3.0.0",
+    "vue-router": "^4.0.0-rc.6",
     "worker-loader": "2.0.0"
   },
   "devDependencies": {
