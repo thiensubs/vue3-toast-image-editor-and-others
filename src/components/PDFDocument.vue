@@ -97,14 +97,6 @@ export default {
           console.log(err);
         });
     })
-    watch(form, (new_value) => {
-        console.log(new_value)
-      },
-      {
-        immediate: true,
-        deep: true,
-      }
-    )
    
     return {
      pdfDoc,
@@ -118,4 +110,6 @@ export default {
   },
 };
 </script>
-
+<style scoped lang="scss">
+@import "~pdfjs-dist/web/pdf_viewer.css";
+</style>

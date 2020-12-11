@@ -28,7 +28,6 @@ export default {
     Pace.start()
   
     onMounted(() => {
-      console.log('aaa')
     })
     onUnmounted(() => {
     })
