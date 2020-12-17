@@ -132,28 +132,28 @@
 
       <!-- Protein-->
       <text x="80" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_gram}}</text>
-      <text x="109" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_per}}</text>
+      <text x="107" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_per}}</text>
       <text x="145" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_gram}}</text>
-      <text x="171" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_per}}</text>
+      <text x="169" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_per}}</text>
       <text x="210" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_gram}}</text>
-      <text x="237" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_per}}</text>
+      <text x="235" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_per}}</text>
       
-      <!-- Card-->
-      <text x="80" y="166" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_gram}}</text>
-      <text x="109" y="166" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_per}}</text>
-      <text x="145" y="166" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_gram}}</text>
-      <text x="171" y="166" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_per}}</text>
-      <text x="210" y="166" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_gram}}</text>
-      <text x="237" y="166" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_per}}</text>
+      <!-- Carb-->
+      <text x="80" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_gram}}</text>
+      <text x="107" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_per}}</text>
+      <text x="145" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_gram}}</text>
+      <text x="169" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_per}}</text>
+      <text x="210" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_gram}}</text>
+      <text x="235" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_per}}</text>
 
       <!-- Vitamins-->
-      <text x="80" y="191" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_1}}</text>
-      <text x="145" y="191" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_2}}</text>
-      <text x="210" y="191" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_3}}</text>
+      <text x="80" y="194" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_1}}</text>
+      <text x="145" y="194" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_2}}</text>
+      <text x="210" y="194" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_3}}</text>
       <!-- Mirenals-->
-      <text x="80" y="218" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_1}}</text>
-      <text x="145" y="218" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_2}}</text>
-      <text x="210" y="218" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_3}}</text>
+      <text x="80" y="219" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_1}}</text>
+      <text x="145" y="219" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_2}}</text>
+      <text x="210" y="219" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_3}}</text>
     </svg>
   </div>
 </template>
