@@ -1,85 +1,87 @@
 <template>
   <div class="hello">
     <form @reset="onReset" ref="form_input" class="pure-form pure-form-stacked">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Top 1 Name</label>
-        <input type="text" class="form-control" v-model="top_1_name" aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Top 1 Gram</label>
-        <input type="number" class="form-control"  v-model="top_1_gram" aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Top 2 Name</label>
-        <input type="text" v-model="top_2_name" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-         <label for="exampleInputEmail1">Top 2 Gram</label>
-        <input type="number" v-model="top_2_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Top 3</label>
-        <input type="text" v-model="top_3_name" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Top 3 Gram</label>
-        <input type="number" v-model="top_3_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-       <div class="form-group">
-        <label for="exampleInputEmail1">Calories 1</label>
-        <input type="number" v-model="calory_1" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Calories 2</label>
-        <input type="number" v-model="calory_2" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Calories 3</label>
-        <input type="number" v-model="calory_3" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
+      <div class='part-one'>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Top 1 Name</label>
+          <input type="text" class="form-control" v-model="top_1_name" aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Top 1 Gram</label>
+          <input type="number" class="form-control"  v-model="top_1_gram" aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Top 2 Name</label>
+          <input type="text" v-model="top_2_name" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+           <label for="exampleInputEmail1">Top 2 Gram</label>
+          <input type="number" v-model="top_2_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Top 3</label>
+          <input type="text" v-model="top_3_name" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Top 3 Gram</label>
+          <input type="number" v-model="top_3_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+         <div class="form-group">
+          <label for="exampleInputEmail1">Calories 1</label>
+          <input type="number" v-model="calory_1" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Calories 2</label>
+          <input type="number" v-model="calory_2" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Calories 3</label>
+          <input type="number" v-model="calory_3" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1">Water 1</label>
-        <input type="number" v-model="water_1" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Water 1</label>
+          <input type="number" v-model="water_1" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Water 2</label>
+          <input type="number" v-model="water_2"  class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+      </div>
+      <div class='protein'>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Water 3</label>
+          <input type="number"  v-model="water_3" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Protein 1 gram</label>
+          <input type="number" v-model="protein_1_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Protein 1 %</label>
+          <input type="number" v-model="protein_1_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Protein 2 gram</label>
+          <input type="number" v-model="protein_2_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Protein 2 %</label>
+          <input type="number" v-model="protein_2_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Protein 3 gram</label>
+          <input type="number" v-model="protein_3_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Protein 3 %</label>
+          <input type="number" v-model="protein_3_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Carb 1 Gram</label>
+          <input type="number" v-model="carb_1_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Carb 1 %</label>
+          <input type="number" v-model="carb_1_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Carb 2 Gram</label>
+          <input type="number" v-model="carb_2_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Carb 2 %</label>
+          <input type="number" v-model="carb_2_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Water 2</label>
-        <input type="number" v-model="water_2"  class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Water 3</label>
-        <input type="number"  v-model="water_3" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Protein 1 gram</label>
-        <input type="number" v-model="protein_1_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Protein 1 %</label>
-        <input type="number" v-model="protein_1_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Protein 2 gram</label>
-        <input type="number" v-model="protein_2_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Protein 2 %</label>
-        <input type="number" v-model="protein_2_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Protein 3 gram</label>
-        <input type="number" v-model="protein_3_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Protein 3 %</label>
-        <input type="number" v-model="protein_3_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Carb 1 Gram</label>
-        <input type="number" v-model="carb_1_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Carb 1 %</label>
-        <input type="number" v-model="carb_1_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Carb 2 Gram</label>
-        <input type="number" v-model="carb_2_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Carb 2 %</label>
-        <input type="number" v-model="carb_2_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Carb 3 Gram</label>
-        <input type="number" v-model="carb_3_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-        <label for="exampleInputEmail1">Carb 3 %</label>
-        <input type="number" v-model="carb_3_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
-      </div>
-
+          <label for="exampleInputEmail1">Carb 3 Gram</label>
+          <input type="number" v-model="carb_3_gram" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+          <label for="exampleInputEmail1">Carb 3 %</label>
+          <input type="number" v-model="carb_3_per" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
+        </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Vitamins 1</label>
         <input type="text" v-model="vitamin_1" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number gram">
@@ -294,11 +296,19 @@ a {
   height: 10.5cm;
 }
 .hello{
-  width: 50%;
+  width: 70%;
   float: left;
+  .protein {
+    width: 40%;
+    float: left;
+  }
+  .part-one{
+    width: 30%;
+    float: left;
+  }
 }
 .page{
-  width: 50%;
+  width: 30%;
   float: left;
 }
 #nutrition{
