@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "babel-plugin-inline-svg": "^1.2.0",
     "core-js": "^3.6.5",
     "json-stringify-safe": "^5.0.1",
+    "lunr": "^2.3.9",
     "pace": "^0.0.4",
     "pace-js": "^1.0.2",
     "pdfjs-dist": "^2.5.207",

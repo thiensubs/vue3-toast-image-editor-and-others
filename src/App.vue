@@ -11,6 +11,9 @@
         <li class="pure-menu-item">
             <a href="image-editor" class="pure-menu-link">Image Editor</a>
         </li>
+        <li class="pure-menu-item">
+            <a href="search-engine" class="pure-menu-link">Search Engine</a>
+        </li>
     </ul>
   </div>
   <router-view></router-view>
