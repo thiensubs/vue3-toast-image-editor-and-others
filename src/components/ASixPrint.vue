@@ -115,47 +115,47 @@
   <div class='page' size="A6" >
     <svg class="textarea" contenteditable="true" id="nutrition">
       <!-- Top-->
-      <text x="77" y="64" font-family="sans-serif" font-size="11px" fill="red">{{top_1_name}}</text>
-      <text x="88" y="75" font-family="sans-serif" font-size="10px" fill="red">{{top_1_gram}}</text>
-      <text x="145" y="64" font-family="sans-serif" font-size="11px" fill="red">{{top_2_name}}</text>
-      <text x="145" y="75" font-family="sans-serif" font-size="10px" fill="red">{{top_2_gram}}</text>
-      <text x="210" y="64" font-family="sans-serif" font-size="11px" fill="red">{{top_3_name}}</text>
-      <text x="210" y="75" font-family="sans-serif" font-size="10px" fill="red">{{top_3_gram}}</text>
+      <text x="117" y="82" font-family="sans-serif" font-size="11px" fill="red">{{top_1_name}}</text>
+      <text x="134" y="100" font-family="sans-serif" font-size="10px" fill="red">{{top_1_gram}}</text>
+      <text x="205" y="82" font-family="sans-serif" font-size="11px" fill="red">{{top_2_name}}</text>
+      <text x="205" y="100" font-family="sans-serif" font-size="10px" fill="red">{{top_2_gram}}</text>
+      <text x="298" y="82" font-family="sans-serif" font-size="11px" fill="red">{{top_3_name}}</text>
+      <text x="298" y="100" font-family="sans-serif" font-size="10px" fill="red">{{top_3_gram}}</text>
 
       <!-- Calories-->
-      <text x="80" y="92" font-family="sans-serif" font-size="10px" fill="red">{{calory_1}}</text>
-      <text x="145" y="92" font-family="sans-serif" font-size="10px" fill="red">{{calory_2}}</text>
-      <text x="210" y="92" font-family="sans-serif" font-size="10px" fill="red">{{calory_3}}</text>
+      <text x="117" y="123" font-family="sans-serif" font-size="10px" fill="red">{{calory_1}}</text>
+      <text x="205" y="123" font-family="sans-serif" font-size="10px" fill="red">{{calory_2}}</text>
+      <text x="298" y="123" font-family="sans-serif" font-size="10px" fill="red">{{calory_3}}</text>
 
       <!-- Water-->
-      <text x="80" y="118" font-family="sans-serif" font-size="10px" fill="red">{{water_1}}</text>
-      <text x="145" y="118" font-family="sans-serif" font-size="10px" fill="red">{{water_2}}</text>
-      <text x="210" y="118" font-family="sans-serif" font-size="10px" fill="red">{{water_3}}</text>
+      <text x="117" y="162" font-family="sans-serif" font-size="10px" fill="red">{{water_1}}</text>
+      <text x="205" y="162" font-family="sans-serif" font-size="10px" fill="red">{{water_2}}</text>
+      <text x="298" y="162" font-family="sans-serif" font-size="10px" fill="red">{{water_3}}</text>
 
       <!-- Protein-->
-      <text x="80" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_gram}}</text>
-      <text x="107" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_per}}</text>
-      <text x="145" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_gram}}</text>
-      <text x="169" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_per}}</text>
-      <text x="210" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_gram}}</text>
-      <text x="235" y="145" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_per}}</text>
+      <text x="117" y="200" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_gram}}</text>
+      <text x="147" y="200" font-family="sans-serif" font-size="10px" fill="red">{{protein_1_per}}</text>
+      <text x="205" y="200" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_gram}}</text>
+      <text x="235" y="200" font-family="sans-serif" font-size="10px" fill="red">{{protein_2_per}}</text>
+      <text x="295" y="200" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_gram}}</text>
+      <text x="325" y="200" font-family="sans-serif" font-size="10px" fill="red">{{protein_3_per}}</text>
       
       <!-- Carb-->
-      <text x="80" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_gram}}</text>
-      <text x="107" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_per}}</text>
-      <text x="145" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_gram}}</text>
-      <text x="169" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_per}}</text>
-      <text x="210" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_gram}}</text>
-      <text x="235" y="169" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_per}}</text>
+      <text x="117" y="232" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_gram}}</text>
+      <text x="147" y="232" font-family="sans-serif" font-size="10px" fill="red">{{carb_1_per}}</text>
+      <text x="205" y="232" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_gram}}</text>
+      <text x="235" y="232" font-family="sans-serif" font-size="10px" fill="red">{{carb_2_per}}</text>
+      <text x="295" y="232" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_gram}}</text>
+      <text x="325" y="232" font-family="sans-serif" font-size="10px" fill="red">{{carb_3_per}}</text>
 
       <!-- Vitamins-->
-      <text x="80" y="194" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_1}}</text>
-      <text x="145" y="194" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_2}}</text>
-      <text x="210" y="194" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_3}}</text>
+      <text x="117" y="264" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_1}}</text>
+      <text x="205" y="264" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_2}}</text>
+      <text x="298" y="264" font-family="sans-serif" font-size="10px" fill="red">{{vitamin_3}}</text>
       <!-- Mirenals-->
-      <text x="80" y="219" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_1}}</text>
-      <text x="145" y="219" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_2}}</text>
-      <text x="210" y="219" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_3}}</text>
+      <text x="117" y="305" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_1}}</text>
+      <text x="205" y="305" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_2}}</text>
+      <text x="298" y="305" font-family="sans-serif" font-size="10px" fill="red">{{mirenal_3}}</text>
     </svg>
   </div>
 </template>
@@ -268,6 +268,10 @@ export default {
   #svg_nutrition{
     display: none !important;
   }
+  .page{
+    margin-bottom: 0px;
+    box-shadow: unset;
+  }
 
 }
 h3 {
@@ -292,8 +296,10 @@ a {
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
 }
 .page[size="A6"] {
-  width: 7.4cm;
-  height: 10.5cm;
+  // width: 10.3cm;
+  // height: 14.7cm;
+  width: 21cm;
+  height: 14.7cm;  
 }
 .hello{
   width: 70%;
@@ -312,8 +318,8 @@ a {
   float: left;
 }
 #nutrition{
-  width: 7.4cm;
-  height: 10.5cm;
+  width: 10.3cm;
+  height: 14.7cm;
   margin: 0 auto;
   background-image: url('~@/assets/Nutrition-A6-01.svg');
 }

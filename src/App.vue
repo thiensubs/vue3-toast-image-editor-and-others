@@ -55,4 +55,14 @@ export default {
 #the-canvas {
   border:1px solid black;
 }
+
+@media print {
+  #app{
+    margin-top: 0px;
+  }
+  .pure-menu{
+    display: none !important;
+  }
+}
+
 </style>
