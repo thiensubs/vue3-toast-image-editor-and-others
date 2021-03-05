@@ -321,6 +321,6 @@ a {
   width: 10.3cm;
   height: 14.7cm;
   margin: 0 auto;
-  background-image: url('~@/assets/Nutrition-A6-01.svg');
+  // background-image: url('~@/assets/Nutrition-A6-01.svg');
 }
 </style>

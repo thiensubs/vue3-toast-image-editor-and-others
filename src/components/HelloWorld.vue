@@ -24,14 +24,16 @@
 
 <script>
 
-
 import { ref } from "vue";
+import {confetiNow} from '../logic/confiti.js'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
   setup(){
+    confetiNow()
     const input_email = ref(null)
     const form_input = ref(null)
 
@@ -39,14 +41,13 @@ export default {
       form_input.value.reset()
       input_email.value.focus()
     }
-
     return {
       input_email,
       onReset,
-      form_input
-
+      form_input,
     }
-  }
+  },
+ 
 }
 </script>
 

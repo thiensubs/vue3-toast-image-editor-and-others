@@ -30,12 +30,15 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJSWorker;
 
 import PDFPage from './PDFPage.vue';
 import {ref, watch, reactive} from 'vue'
+import {confetiNow} from '../logic/confiti.js'
+
 export default {
   name: 'PDFDocument',
   component: {
     PDFPage,
   },
   setup() {
+    confetiNow()
     const form = reactive({
       url: "",
     })

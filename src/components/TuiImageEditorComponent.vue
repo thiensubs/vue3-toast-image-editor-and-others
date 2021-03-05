@@ -5,12 +5,15 @@
 <script>
 import { ref, reactive} from "vue";
 import { onMounted, onUnmounted } from 'vue';
+import {confetiNow} from '../logic/confiti.js'
+
 var ImageEditor = require('tui-image-editor');
 export default {
   name: 'TuiImageEditor',
   components: {
   },
   setup() {
+    confetiNow()
     const useDefaultUI = ref(true);
     const options = reactive({ 
       cssMaxWidth: 700,
