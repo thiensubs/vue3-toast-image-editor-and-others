@@ -27,7 +27,7 @@ yarn lint
 - Search engine Lunr + Movie DB (js)
 
 ### TODO
-- [ ] Move search with js worker.
+- [x] Move index for search to js worker.
 - [ ] Adding pagination for search.
 - [ ] Add Trix editor and some custom for it.
 - [ ] Consider add Rx.
