@@ -12,7 +12,7 @@ const router = createRouter({
     { path: '/hello', name: 'hello', component: HelloWorld },
     { path: '/pdf-document', name: 'pdf', component: PDFDocument, props: true },
     { path: '/image-editor', name: 'editor', component: TuiImageEditor, props: true },
-    { path: '/search-engine', name: 'search-engine', component: SearchEngine },
+    { path: '/search-engine', name: 'search_engine', component: SearchEngine },
     { path: '/print', name: 'print', component: ASixPrint },
   ]
 });
