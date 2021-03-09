@@ -31,7 +31,7 @@ yarn lint
 - [ ] Adding pagination for search.
 - [ ] Add Trix editor and some custom for it.
 - [ ] Consider add Rx.
-- [ ] Add canvas-confetti (I like this animation)
+- [x] Add canvas-confetti (I like this animation)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
