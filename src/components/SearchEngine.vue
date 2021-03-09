@@ -6,9 +6,7 @@
         <input type="text" class="form-control" v-model="term" aria-describedby="emailHelp" placeholder="Enter text to search" :disabled="!indexed">
       </div>
     </div>
-    <ul>
-      <li v-for="item in results" :key="item.ref">{{documents[item.ref].title}}</li>
-    </ul>
+    <Pagination :totalPages="totalPages" :perPage="totalPages" :items="results" :documents="documents"></Pagination>
     <div v-show="movies_length != 0 && current_idx+1 !== movies_length">Indexing {{current_idx+1}} of {{movies_length}}</div>
   </form>
 </template>
@@ -23,9 +21,12 @@ import movies from '../assets/movies.json'
 var lunr = require('lunr/lunr.js');
 var idx;
 import {confetiNow} from '../logic/confiti.js'
+import Pagination from './Pagination.vue'
+
 export default {
   name: 'SearchEngine',
   components: {
+    Pagination
   },
   setup() {
     confetiNow()
