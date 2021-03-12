@@ -32,6 +32,7 @@ yarn lint
 - [ ] Add Trix editor and some custom for it.
 - [ ] Consider add Rx.
 - [x] Add canvas-confetti (I like this animation)
+- [ ] Fully Flex layout.
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
