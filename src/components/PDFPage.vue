@@ -1,11 +1,17 @@
 <template>
-  <canvas ref="myCanvas" v-bind="canvasAttrs">
-    <div ref="textLayer" v-bind="canvasAttrs">
+  <div class='page' :data-page-number="page.pageNumber">
+    <div class="canvasWrapper">
+      <canvas ref="myCanvas" v-bind="canvasAttrs">
+      </canvas>
     </div>
-  </canvas>
+    <div ref="textLayer">
+    </div>
+  </div>
 </template>
 <script>
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
+// CanvasRenderingContext2D.prototype.strokeText = function () { };
+// CanvasRenderingContext2D.prototype.fillText = function () { };
 export default {
   props: ['page', 'scale'],
   inheritAttrs: false,
@@ -16,20 +22,20 @@ export default {
     let actualSizeViewport = computed(() => viewport.clone({scale: props.scale}))
 
     let canvasStyle =  computed(() => {
-      const {width: actualSizeWidth, height: actualSizeHeight} = actualSizeViewport.value;
+      const {width: actualSizeWidth, height: actualSizeHeight} = actualSizeViewport;
       const pixelRatio = window.devicePixelRatio || 1;
       console.log(window.devicePixelRatio)
       const [pixelWidth, pixelHeight] = [actualSizeWidth, actualSizeHeight].map(dim => Math.ceil(dim / pixelRatio));
       return `width: ${pixelWidth}px; height: ${pixelHeight}px;`
     })
     let canvasAttrs = computed(() => {
-      let {width, height} = actualSizeViewport.value;
+      let {width, height} = viewport.clone({scale: props.scale});
       [width, height] = [width, height].map(dim => Math.ceil(dim));
 
       const style = canvasStyle;
       return {
-        width,
-        height,
+        width: 816,
+        height: 1056,
         style,
         class: 'pdf-page box-shadow',
       };
@@ -44,12 +50,13 @@ export default {
       props.page.getTextContent({ normalizeWhitespace: true }).then(textContent => {
 
         textLayer.value.setAttribute('class', 'textLayer');
-        return global.pdfjsLib.renderTextLayer({
+        var textRender = global.pdfjsLib.renderTextLayer({
           textContent: textContent,
           container: textLayer.value,
-          viewport: viewport,
-          textDivs: []
+          viewport: viewport.clone({scale: props.scale}),
         });
+        textRender._render();
+        props.page.render(getRenderContext());
         // textLayerInside.setTextContent(textContent)
         // textContent.items.forEach(function (textItem) {
         //   var tx = global.pdfjsLib.Util.transform(
@@ -104,11 +111,10 @@ export default {
 
       // const returnedTarget = Object.assign(getRenderContext(), {textLayer: textLayer.value});
       // console.log(returnedTarget)
-      // props.page.render(viewport);
+      
 
     }
     function getRenderContext() {
-     
       const canvasContext = myCanvas.value.getContext('2d');
       return {canvasContext, viewport};
     }

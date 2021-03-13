@@ -10,7 +10,7 @@
       </fieldset>
     </form>
   </div>
-  <div class="pdf-document" v-if="pages.length > 0">
+  <div class="pdf-document pdfViewer" v-if="pages.length > 0">
     <pdf-page
       v-for="page_single in pages"
       v-bind="{scale}"
@@ -42,7 +42,7 @@ export default {
     const form = reactive({
       url: "",
     })
-    const scale = ref(1.0)
+    const scale = ref(1.3)
     let pdfDoc= ref(null)
     let pages = ref([])
     function initPDF(){
