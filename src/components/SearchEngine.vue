@@ -1,18 +1,23 @@
 <template>
    <form @reset="onReset" ref="form_input" class="pure-form pure-form-stacked">
     <div class='part-one'>
-      <div class="form-group">
+      <div class="form-group search">
         <label for="exampleInputEmail1">Search:</label>
-        <input type="text" class="form-control" v-model="term" aria-describedby="emailHelp" placeholder="Enter text to search" :disabled="!indexed">
+        <input type="text" class="form-control" v-model="term" aria-describedby="emailHelp" :placeholder="textInside" :disabled="!indexed">
       </div>
     </div>
-    <Pagination :totalPages="totalPages" :perPage="totalPages" :items="results" :documents="documents"></Pagination>
-    <div v-show="movies_length != 0 && current_idx+1 !== movies_length">Indexing {{current_idx+1}} of {{movies_length}}</div>
+    <div class='wrap-search'>
+      <Pagination :items="results" :documents="documents"></Pagination>
+    </div>
   </form>
 </template>
 
 <script>
-import { ref, watch} from "vue";
+import { 
+  ref,
+  watch,
+  computed
+} from "vue";
 import { onMounted, onUnmounted } from 'vue';
 import IndexWorker from '!!file-loader!../workers/index_lunr.js';
 const worker = new Worker(IndexWorker);
@@ -52,7 +57,15 @@ export default {
     }
     movies_length.value = movies.length
     worker.postMessage({type: 'init', movies: movies});
+    const textInside = computed(() => {
+      if (current_idx.value === (movies_length.value-1) && indexed) {
+        return "Enter text to search"
+      }
+      else{
+        return `Indexing ${current_idx.value+1} of ${movies_length.value}`
+      }
 
+    })
     function createDebounce() {
       let timeout = null;
       return function (fnc, delayMs) {
@@ -64,7 +77,6 @@ export default {
     }
     watch(term, (val) => {
       let results_temp = idx.search(val);
-      console.log(results_temp)
       results.value = results_temp
     })
     
@@ -72,6 +84,7 @@ export default {
       console.log('form_input');
     })
     onUnmounted(() => {
+      documents.value = []
     })
     return {
       form_input,
@@ -82,12 +95,20 @@ export default {
       current_idx, 
       movies_length,
       documents,
-      indexed
+      indexed,
+      textInside
     }
   }
 }
 </script>
 
-<style scoped lang="scss">
-
+<style scoped lang="sass">
+.search
+  display: flex
+  align-items: center
+  justify-content: center
+.wrap-search
+  flex-grow: 1
+#app
+  height: 100vh  
 </style>
