@@ -16,7 +16,11 @@
         </li>
     </ul>
   </div>
-  <router-view></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
+  
+  <footer>FOOTER GOES HERE</footer>
 </template>
 
 <script>
@@ -41,17 +45,28 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "~purecss/build/pure-min.css";
-
+html {
+  height: -webkit-fill-available;
+}
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 #the-canvas {
   border:1px solid black;
@@ -65,5 +80,10 @@ export default {
     display: none !important;
   }
 }
-
+footer {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: center;
+}
 </style>

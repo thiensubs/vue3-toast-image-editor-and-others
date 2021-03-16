@@ -109,6 +109,5 @@ export default {
   justify-content: center
 .wrap-search
   flex-grow: 1
-#app
-  height: 100vh  
+  flex: 1
 </style>
