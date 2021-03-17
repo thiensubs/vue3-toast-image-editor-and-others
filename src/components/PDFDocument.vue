@@ -1,13 +1,22 @@
 <template>
+  <div class="pure-button-group" role="group" aria-label="...">
+    <button class="pure-button" :class="[form.type === 'url' ? 'pure-button-active' : '']" @click="form.type = `url` ">Show PDF URL</button>
+    <button class="pure-button" :class="[form.type === 'file' ? 'pure-button-active' : '']" @click="form.type = 'file' ">Upload File</button>
+  </div>
   <div class="form-input-url">
     <form @reset="onReset" ref="form_input" class="pure-form pure-form-stacked" @submit.prevent="onSubmit">
-      <div class="form-group">
+      <div class="form-group" v-show="form.type === 'url'">
         <label for="url">Url pdf address, example: https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf</label>
         <input type="text" class="form-control pure-u-1" id="url" v-model="form.url" ref="url" aria-describedby="emailHelp" placeholder="https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf">
       </div>
-      <fieldset class="pure-group">
+      <fieldset class="pure-group" v-show="form.type === 'url'">
         <button type="submit" class="pure-button pure-button-primary pure-u-1-5">Submit</button>
       </fieldset>
+      <fieldset class="pure-group" v-show="form.type === 'file'">
+        <label for="file-pdf">Upload PDF File:</label>
+        <input type="file" name='file-pdf'  accept="application/pdf" @change="onFilePicked" class="pure-button pure-button-primary pure-u-5-5">
+      </fieldset>
+      
     </form>
   </div>
   <div class="pdf-document pdfViewer" v-if="pages.length > 0">
@@ -41,6 +50,7 @@ export default {
     confetiNow()
     const form = reactive({
       url: "",
+      type: 'url'
     })
     const scale = ref(1.3)
     let pdfDoc= ref(null)
@@ -49,12 +59,20 @@ export default {
       // Asynchronous download of PDF
       if (form.url.length){
         getBinaryData(form.url)
-        // var loadingTask = pdfjsLib.getDocument(form.url);
-        // loadingTask.promise.then(pdfDoc_ => {
-        //   pdfDoc.value = pdfDoc_;
-        // })
       }
       
+    }
+    function onFilePicked(event) {
+      let reader = new FileReader();
+      let file = event.target.files[0];
+      reader.onload = evt => {
+        let typedarray = new Uint8Array(evt.target.result);
+        let loadingTask = pdfjsLib.getDocument(typedarray)
+        loadingTask.promise.then(pdfDoc_ => {
+          pdfDoc.value = pdfDoc_;
+        })
+      };
+      reader.readAsArrayBuffer(file);
     }
     function onSubmit() {
       pdfDoc.value = null;
@@ -69,6 +87,7 @@ export default {
         var xhr = new XMLHttpRequest();
         // xhr.setRequestHeader("Origin", window.location.hostname);
         xhr.open('GET', url, true);
+        xhr.withCredentials = true;
         xhr.responseType = 'arraybuffer';
         xhr.onload = function(e) {
             //binary form of ajax response,
@@ -108,7 +127,8 @@ export default {
      assign_list,
      onSubmit,
      scale,
-     form
+     form,
+     onFilePicked
     };
   },
 };
