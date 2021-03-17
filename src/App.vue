@@ -1,6 +1,6 @@
 <template>
   <div class="pure-menu pure-menu-horizontal">
-    <a href="#" class="pure-menu-heading pure-menu-link">DEMO SOME MINI APPLICATION</a>
+    <a href="./" class="pure-menu-heading pure-menu-link">DEMO SOME MINI APPLICATION</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
             <a href="hello" class="pure-menu-link">Form with focus</a>
