@@ -60,11 +60,15 @@ export default {
       if (form.url.length){
         getBinaryData(form.url)
       }
-      
+    }
+    function initPDFPages(){
+      pdfDoc.value = null;
+      pages.value  = [];
     }
     function onFilePicked(event) {
       let reader = new FileReader();
       let file = event.target.files[0];
+      initPDFPages()
       reader.onload = evt => {
         let typedarray = new Uint8Array(evt.target.result);
         let loadingTask = pdfjsLib.getDocument(typedarray)
@@ -75,7 +79,7 @@ export default {
       reader.readAsArrayBuffer(file);
     }
     function onSubmit() {
-      pdfDoc.value = null;
+      initPDFPages()
       initPDF()
     }
     initPDF()
@@ -87,7 +91,6 @@ export default {
         var xhr = new XMLHttpRequest();
         // xhr.setRequestHeader("Origin", window.location.hostname);
         xhr.open('GET', url, true);
-        xhr.withCredentials = true;
         xhr.responseType = 'arraybuffer';
         xhr.onload = function(e) {
             //binary form of ajax response,
@@ -128,7 +131,8 @@ export default {
      onSubmit,
      scale,
      form,
-     onFilePicked
+     onFilePicked,
+     initPDFPages
     };
   },
 };
