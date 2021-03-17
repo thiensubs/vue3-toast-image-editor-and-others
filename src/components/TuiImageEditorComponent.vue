@@ -44,6 +44,7 @@ export default {
 
 <style scoped lang="scss">
 #tui-image-editor{
-  height: 100vh !important;
+  height: calc(var(--vh, 1vh) * 100) !important;
+  // height: 100vh !important;
 }
 </style>

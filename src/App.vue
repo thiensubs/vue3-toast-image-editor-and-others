@@ -33,13 +33,19 @@ export default {
   },
   setup() {
     Pace.start()
-  
+    window.addEventListener("resize", setVh);
+    window.addEventListener('load', setVh);
     onMounted(() => {
     })
     onUnmounted(() => {
     })
+    function setVh() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
     return { 
-      Pace, 
+      Pace,
+      setVh 
     }
   }
 }
@@ -67,6 +73,7 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: calc(var(--vh, 1vh) * 100);
 }
 #the-canvas {
   border:1px solid black;
