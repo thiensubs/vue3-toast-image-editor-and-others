@@ -56,8 +56,7 @@ const router = createRouter({
         path: '/print',
         name: 'print',
         component: ASixPrint
-    },
-    {
+    }, {
         path: '/trix',
         name: 'trix',
         component: TrixEditorDemo,
