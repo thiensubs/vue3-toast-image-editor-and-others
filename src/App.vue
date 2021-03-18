@@ -1,21 +1,21 @@
 <template>
   <div class="pure-menu pure-menu-horizontal">
-    <a href="./" class="pure-menu-heading pure-menu-link">DEMO SOME MINI APPLICATION</a>
+    <router-link class='pure-menu-heading pure-menu-link' to="/">DEMO SOME MINI APPLICATION</router-link>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
-            <a href="hello" class="pure-menu-link">Form with focus</a>
+          <router-link class='pure-menu-link' to="/hello">Form with focus</router-link>
         </li>
         <li class="pure-menu-item">
-            <a href="pdf-document" class="pure-menu-link">Pdf Document</a>
+          <router-link class='pure-menu-link' to="/pdf-document">Pdf Document</router-link>
         </li>
         <li class="pure-menu-item">
-            <a href="image-editor" class="pure-menu-link">Image Editor</a>
+          <router-link class='pure-menu-link' to="/image-editor">Image Editor</router-link>
         </li>
         <li class="pure-menu-item">
-            <a href="search-engine" class="pure-menu-link">Search Engine</a>
+          <router-link class='pure-menu-link' to="/search-engine">Search Engine</router-link>
         </li>
         <li class="pure-menu-item">
-            <a href="trix" class="pure-menu-link">Trix Editor</a>
+          <router-link class='pure-menu-link' to="/trix">Trix Editor</router-link>
         </li>
     </ul>
   </div>
