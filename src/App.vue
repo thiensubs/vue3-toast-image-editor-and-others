@@ -41,6 +41,8 @@ export default {
     onMounted(() => {
     })
     onUnmounted(() => {
+      window.addEventListener("resize")
+      window.addEventListener("load")
     })
     function setVh() {
       const vh = window.innerHeight * 0.01;
