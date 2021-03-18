@@ -29,7 +29,7 @@ yarn lint
 ### TODO
 - [x] Move index for search to js worker.
 - [x] Adding pagination for search.
-- [ ] Add Trix editor and some custom for it.
+- [x] Add Trix editor and some custom for it.
 - [ ] Consider add Rx.
 - [x] Add canvas-confetti (I like this animation)
 - [ ] Fully Flex layout.
