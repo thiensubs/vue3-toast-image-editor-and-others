@@ -64,6 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:10.1.0"],
             ["source-map-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:2.0.1"],
             ["thread-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:3.0.1"],
+            ["trix", "npm:1.3.1"],
             ["ts-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:8.0.17"],
             ["ts-node", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:9.1.1"],
             ["tui-image-editor", "npm:3.10.1"],
@@ -14866,6 +14867,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["trix", [
+        ["npm:1.3.1", {
+          "packageLocation": "./.yarn/cache/trix-npm-1.3.1-079fa11f01-981f882546.zip/node_modules/trix/",
+          "packageDependencies": [
+            ["trix", "npm:1.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["tryer", [
         ["npm:1.0.1", {
           "packageLocation": "./.yarn/cache/tryer-npm-1.0.1-f48ab9ec32-0d0fa95e8a.zip/node_modules/tryer/",
@@ -15628,6 +15638,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:10.1.0"],
             ["source-map-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:2.0.1"],
             ["thread-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:3.0.1"],
+            ["trix", "npm:1.3.1"],
             ["ts-loader", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:8.0.17"],
             ["ts-node", "virtual:0ed6d4772e078784d27f50b2bb970f4f431fdb22af937060142e1f2455d630da8b24dab09791d8269e631e8dc8bce009efe7255777758ad077cb2e7cc3582748#npm:9.1.1"],
             ["tui-image-editor", "npm:3.10.1"],

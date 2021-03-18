@@ -15,7 +15,8 @@ const TuiImageEditor = () =>
     import ('./TuiImageEditorComponent.vue');
 const SearchEngine = () =>
     import ('./SearchEngine.vue');
-
+const TrixEditorDemo = () =>
+    import ('./TrixEditorDemo.vue');
 const router = createRouter({
     history: createWebHistory(),
     routes: [{
@@ -55,6 +56,14 @@ const router = createRouter({
         path: '/print',
         name: 'print',
         component: ASixPrint
+    },
+    {
+        path: '/trix',
+        name: 'trix',
+        component: TrixEditorDemo,
+        meta: {
+            title: 'Trix Editor Demo'
+        }
     }, ]
 });
 const DEFAULT_TITLE = 'Vue3 Multi-Mini Applications';

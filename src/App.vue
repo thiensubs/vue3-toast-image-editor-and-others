@@ -14,6 +14,9 @@
         <li class="pure-menu-item">
             <a href="search-engine" class="pure-menu-link">Search Engine</a>
         </li>
+        <li class="pure-menu-item">
+            <a href="trix" class="pure-menu-link">Trix Editor</a>
+        </li>
     </ul>
   </div>
   <main>
@@ -61,9 +64,18 @@ body {
   min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  // min-height: 100% !important;
+  // height: auto !important;
+  max-height: 100% !important;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow-y: auto;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -74,6 +86,8 @@ main {
   flex-direction: column;
   flex: 1;
   height: calc(var(--vh, 1vh) * 100);
+  position: absolute;
+  width: 100%;
 }
 #the-canvas {
   border:1px solid black;
