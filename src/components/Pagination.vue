@@ -6,7 +6,7 @@
     </div>
     <div class="content_detail__pagination cdp" :actpage="page" v-if="totalPages>0">
         <a href="javascript:void(0)" @click=prev() class="cdp_i">prev</a>
-        <a href='javascript:void(0)' @click=goPage(pageNumber) :key="pageNumber" class="cdp_i" v-for="pageNumber in totalPages">{{pageNumber}}</a>
+        <a href='javascript:void(0)' @click=goPage(pageNumber) :key="pageNumber" class="cdp_i" v-for="pageNumber in totalPagesRender">{{pageNumber}}</a>
         <a href="javascript:void(0)" @click=next() class="cdp_i">next</a>
     </div>
 </template>
@@ -19,6 +19,7 @@ export default {
         const currentPage = ref(2)
         const results = ref([])
         const totalPages = ref(0)
+        const totalPagesRender = ref([])
         const page = ref(1)
         page.value = props.currentPage || 1
         let per_page = props.perPage || 10
@@ -27,9 +28,35 @@ export default {
         watch(() => props.items, (after) => {
             results.value = after.slice(offset.value).slice(0, per_page)
             totalPages.value = Math.ceil(props.items.length / per_page);
+            if (totalPages.value > 10)
+            {
+                if (totalPages.value - page.value > 10 ){
+                    const temp_array = range(page.value,page.value+10)
+                    temp_array.push(totalPages.value)
+                    totalPagesRender.value = temp_array
+                }
+                else
+                {
+                    totalPagesRender.value = totalPages.value 
+                }
+            }
+            else
+            {
+                totalPagesRender.value = range(page.value,page.value+10)
+            }
         })
         watch(page, (newValue) => {
             offset.value = (newValue - 1) * per_page
+            if (totalPages.value - page.value > 10 ){
+                const temp_array = range(page.value,page.value+10)
+                temp_array.push(totalPages.value)
+                totalPagesRender.value = temp_array 
+            }
+            else
+            {
+                totalPagesRender.value = totalPages.value 
+            }
+           
         })
         watch(offset, () => {
             results.value = props.items.slice(offset.value).slice(0, per_page)
@@ -47,6 +74,9 @@ export default {
         function goPage(pageNumber) {
             page.value = pageNumber;
         }
+        function range(start, end) {
+          return Array(end - start + 1).fill().map((_, idx) => start + idx)
+        }
         return {
             results,
             currentPage,
@@ -55,7 +85,8 @@ export default {
             next,
             actPage,
             page,
-            goPage
+            goPage,
+            totalPagesRender
         }
        
     }
