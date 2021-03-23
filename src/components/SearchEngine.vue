@@ -56,7 +56,13 @@ export default {
       }
     }
     movies_length.value = movies.length
-    worker.postMessage({type: 'init', movies: movies});
+    if (idx){
+      indexed.value = true
+      current_idx.value = movies_length.value-1
+    }
+    else{
+      worker.postMessage({type: 'init', movies: movies});
+    }
     const textInside = computed(() => {
       if (current_idx.value === (movies_length.value-1) && indexed) {
         return "Enter text to search"

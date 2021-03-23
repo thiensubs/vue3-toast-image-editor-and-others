@@ -9,9 +9,11 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import Trix from "trix";
 import "trix/dist/trix.css";
+import {confetiNow} from '../logic/confiti.js'
 export default {
   name: 'TrixEditorDemo',
   setup() {
+    confetiNow()
     const id = ref('trix_id');
     const trixText = ref('');
     onMounted(() => {
