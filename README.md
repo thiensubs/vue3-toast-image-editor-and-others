@@ -1,5 +1,7 @@
 # vue3-image-editor
 
+### [NEWS] DEMO: https://thiensubs.github.io/
+
 ## Project setup
 ```
 yarn
@@ -37,3 +39,4 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
