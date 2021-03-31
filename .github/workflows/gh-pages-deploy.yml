@@ -15,8 +15,9 @@
         - name: Checkout branch
           uses: actions/checkout@v2
 
-        - name: Clean install dependencies
-          run: yarn install --frozen-lockfile
+        - uses: borales/actions-yarn@v2.0.0
+          with:
+            cmd: install
 
         - name: Run deploy script
           run: |
