@@ -15,11 +15,11 @@
         - name: Checkout branch
           uses: actions/checkout@v2
         
-        - uses: borales/actions-yarn@v2.0.0
+        - uses: bahmutov/npm-install@v1
           with:
-            cmd: install # will run `yarn install` command
+            install-command: yarn --frozen-lockfile --silent
 
         - name: Run deploy script
           run: |
             git config user.name "thiensubs" && git config user.email "nguoitinh.cuaanh.12@gmail.com"
-            run gh-pages-deploy
+            yarn run gh-pages-deploy
