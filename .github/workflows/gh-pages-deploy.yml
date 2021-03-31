@@ -14,10 +14,10 @@
             node-version:  '14'
         - name: Checkout branch
           uses: actions/checkout@v2
-
-        - uses: sergioramos/yarn-actions/install@v6
+        
+        - uses: borales/actions-yarn@v2.0.0
           with:
-            frozen-lockfile: true
+            cmd: install # will run `yarn install` command
 
         - name: Run deploy script
           run: |
