@@ -15,9 +15,9 @@
         - name: Checkout branch
           uses: actions/checkout@v2
 
-        - uses: borales/actions-yarn@v2.0.0
+        - uses: sergioramos/yarn-actions/install@v6
           with:
-            install-command: yarn --frozen-lockfile --silent
+            frozen-lockfile: true
 
         - name: Run deploy script
           run: |
