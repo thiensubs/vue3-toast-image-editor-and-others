@@ -33,6 +33,7 @@ yarn lint
 - [ ] Consider add Rx.
 - [x] Add canvas-confetti (I like this animation)
 - [ ] Fully Flex layout.
+- [ ] Adding the ARIA.
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
