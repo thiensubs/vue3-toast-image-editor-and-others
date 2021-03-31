@@ -1,6 +1,6 @@
 # vue3-image-editor
 
-### [NEWS] DEMO: https://thiensubs.github.io/
+### [NEWS] DEMO: https://thiensubs.github.io/vue3-toast-image-editor-and-others/
 
 ## Project setup
 ```
