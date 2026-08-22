@@ -28,8 +28,8 @@
 
 <script>
 import { onMounted, onUnmounted } from 'vue';
-const Pace = require('pace-js/pace.min.js');
-global.Pace=Pace;
+import Pace from 'pace-js/pace.min.js';
+window.Pace=Pace;
 export default {
   name: 'App',
   components: {
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~purecss/build/pure-min.css";
+@import "purecss/build/pure-min.css";
 html {
   height: -webkit-fill-available;
 }

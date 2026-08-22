@@ -3,63 +3,51 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "dev": "vite",
+    "serve": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.vue src",
     "gh-pages-deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
-    "babel-plugin-inline-svg": "^1.2.0",
     "canvas-confetti": "^1.3.3",
-    "core-js": "^3.6.5",
-    "file-loader": "^6.2.0",
     "json-stringify-safe": "^5.0.1",
     "lunr": "^2.3.9",
     "pace": "^0.0.4",
     "pace-js": "^1.0.2",
-    "pdf.js": "^0.1.0",
-    "pdfjs-dist": "^2.5.207",
+    "pdfjs-dist": "^6.2.108",
     "purecss": "^2.0.3",
     "sass": "^1.30.0",
-    "sass-loader": "^10.1.0",
     "trix": "^1.3.1",
     "tui-image-editor": "^3.10.1",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-rc.6",
-    "webpack": "^4.0.0",
-    "worker-loader": "2.0.0"
+    "vue-router": "^4.0.0-rc.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "cache-loader": "^4.1.0",
-    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "execa": "latest",
-    "fork-ts-checker-webpack-plugin": "^6.1.1",
-    "pnp-webpack-plugin": "^1.6.4",
-    "source-map-loader": "^2.0.1",
-    "thread-loader": "^3.0.1",
-    "ts-loader": "^8.0.17",
-    "ts-node": "^9.1.1",
-    "webpack-cli": "^4.5.0"
+    "vite": "^7.3.6"
   },
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "browser": true,
+      "es2020": true
     },
     "extends": [
       "plugin:vue/vue3-essential",
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "babel-eslint",
+      "ecmaVersion": 2021,
+      "sourceType": "module"
     },
     "rules": {}
   },

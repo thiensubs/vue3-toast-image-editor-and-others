@@ -10,6 +10,7 @@
 </template>
 <script>
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
+import { TextLayer } from 'pdfjs-dist/build/pdf.mjs';
 // CanvasRenderingContext2D.prototype.strokeText = function () { };
 // CanvasRenderingContext2D.prototype.fillText = function () { };
 export default {
@@ -47,15 +48,17 @@ export default {
     function renderPage() {
       // const ctx = myCanvas.value.getContext('2d', { alpha: false });
        // const renderTask = props.page.render(getRenderContext());
-      props.page.getTextContent({ normalizeWhitespace: true }).then(textContent => {
+      props.page.getTextContent().then(textContent => {
 
         textLayer.value.setAttribute('class', 'textLayer');
-        var textRender = global.pdfjsLib.renderTextLayer({
-          textContent: textContent,
+        // pdf.js v4+ sizes the text layer from this CSS variable.
+        textLayer.value.style.setProperty('--total-scale-factor', String(props.scale));
+        const textRender = new TextLayer({
+          textContentSource: textContent,
           container: textLayer.value,
           viewport: viewport.clone({scale: props.scale}),
         });
-        textRender._render();
+        textRender.render();
         props.page.render(getRenderContext());
         // textLayerInside.setTextContent(textContent)
         // textContent.items.forEach(function (textItem) {

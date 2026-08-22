@@ -93,5 +93,5 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import '../assets/pagination.scss' 
+@use '../assets/pagination.scss';
 </style>

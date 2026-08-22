@@ -19,11 +19,11 @@ import {
   computed
 } from "vue";
 import { onMounted, onUnmounted } from 'vue';
-import IndexWorker from '!!file-loader!../workers/index_lunr.js';
+import IndexWorker from '../workers/index_lunr.js?url';
 const worker = new Worker(IndexWorker);
 
 import movies from '../assets/movies.json'
-var lunr = require('lunr/lunr.js');
+import lunr from 'lunr/lunr.js';
 var idx;
 import {confetiNow} from '../logic/confiti.js'
 import Pagination from './Pagination.vue'

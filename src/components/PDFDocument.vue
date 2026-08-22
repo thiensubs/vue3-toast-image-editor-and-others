@@ -31,14 +31,12 @@
 </template>
 
 <script>
-var pdfjsLib = require('pdfjs-dist/build/pdf')
-global.pdfjsLib = pdfjsLib
-window.pdfjsLib = pdfjsLib
-import PDFJSWorker from '!!file-loader!pdfjs-dist/build/pdf.worker.min.js';
-pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJSWorker;
+import * as pdfjsLib from 'pdfjs-dist/build/pdf.mjs'
+import PdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?worker'
+pdfjsLib.GlobalWorkerOptions.workerPort = new PdfWorker();
 
 import PDFPage from './PDFPage.vue';
-import {ref, watch, reactive} from 'vue'
+import {ref, shallowRef, watch, reactive} from 'vue'
 import {confetiNow} from '../logic/confiti.js'
 
 export default {
@@ -53,8 +51,10 @@ export default {
       type: 'url'
     })
     const scale = ref(1.3)
-    let pdfDoc= ref(null)
-    let pages = ref([])
+    // pdf.js proxies use private class fields, which break under Vue's deep
+    // reactivity proxying — keep them shallow.
+    let pdfDoc = shallowRef(null)
+    let pages = shallowRef([])
     function initPDF(){
       // Asynchronous download of PDF
       if (form.url.length){
@@ -71,7 +71,7 @@ export default {
       initPDFPages()
       reader.onload = evt => {
         let typedarray = new Uint8Array(evt.target.result);
-        let loadingTask = pdfjsLib.getDocument(typedarray)
+        let loadingTask = pdfjsLib.getDocument({ data: typedarray })
         loadingTask.promise.then(pdfDoc_ => {
           pdfDoc.value = pdfDoc_;
         })
@@ -94,10 +94,10 @@ export default {
         xhr.responseType = 'arraybuffer';
         xhr.onload = function(e) {
             //binary form of ajax response,
-            var loadingTask = pdfjsLib.getDocument(e.currentTarget.response);
+            var loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(e.currentTarget.response) });
             loadingTask.promise.then(pdfDoc_ => {
               pdfDoc.value = pdfDoc_;
-            })
+            }).catch(err => console.error('Failed to load PDF:', err));
         };
 
         xhr.onerror = function  () {
@@ -108,9 +108,8 @@ export default {
         xhr.send();
     }
     watch(pdfDoc, (new_value) => {
-      
       if (new_value===null)
-        return 
+        return
       var array_pages = [];
       for (var i = 0; i < new_value.numPages; i++) {
         array_pages.push(i+1)
@@ -119,7 +118,7 @@ export default {
       Promise.all(promises).
         then(function (doc) {assign_list(doc)}).
         catch(function (err) {
-          console.log(err);
+          console.error('Failed to load PDF pages:', err);
         });
     })
    
@@ -137,6 +136,8 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-@import "~pdfjs-dist/web/pdf_viewer.css";
+<style lang="scss">
+// Not scoped: pdf.js creates the textLayer spans dynamically at runtime,
+// so they never carry this component's scoped data-attribute.
+@import "pdfjs-dist/web/pdf_viewer.css";
 </style>
