@@ -19,25 +19,17 @@ export default {
   setup(props){
     const myCanvas = ref(null)
     const textLayer = ref(null)
+    // Render the backing store at devicePixelRatio so text stays sharp on
+    // HiDPI screens; the CSS size stays at CSS pixels.
+    const pixelRatio = window.devicePixelRatio || 1;
     const viewport = props.page.getViewport({ scale: props.scale, })
-    let actualSizeViewport = computed(() => viewport.clone({scale: props.scale}))
 
-    let canvasStyle =  computed(() => {
-      const {width: actualSizeWidth, height: actualSizeHeight} = actualSizeViewport;
-      const pixelRatio = window.devicePixelRatio || 1;
-      console.log(window.devicePixelRatio)
-      const [pixelWidth, pixelHeight] = [actualSizeWidth, actualSizeHeight].map(dim => Math.ceil(dim / pixelRatio));
-      return `width: ${pixelWidth}px; height: ${pixelHeight}px;`
-    })
     let canvasAttrs = computed(() => {
-      let {width, height} = viewport.clone({scale: props.scale});
-      [width, height] = [width, height].map(dim => Math.ceil(dim));
-
-      const style = canvasStyle;
+      const {width, height} = viewport.clone({scale: props.scale});
       return {
-        width: 816,
-        height: 1056,
-        style,
+        width: Math.floor(width * pixelRatio),
+        height: Math.floor(height * pixelRatio),
+        style: `width: ${Math.floor(width)}px; height: ${Math.floor(height)}px;`,
         class: 'pdf-page box-shadow',
       };
     })
@@ -119,7 +111,11 @@ export default {
     }
     function getRenderContext() {
       const canvasContext = myCanvas.value.getContext('2d');
-      return {canvasContext, viewport};
+      return {
+        canvasContext,
+        viewport,
+        transform: pixelRatio !== 1 ? [pixelRatio, 0, 0, pixelRatio, 0, 0] : null,
+      };
     }
     function destroyPage(page) {
       if (!page) return;
@@ -141,8 +137,6 @@ export default {
 
     return {
       viewport,
-      actualSizeViewport,
-      canvasStyle,
       canvasAttrs,
       renderPage,
       getRenderContext,

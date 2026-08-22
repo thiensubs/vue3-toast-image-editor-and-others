@@ -18,7 +18,8 @@ const SearchEngine = () =>
 const TrixEditorDemo = () =>
     import ('./TrixEditorDemo.vue');
 const router = createRouter({
-    history: createWebHistory(),
+    // Vite base — the app is served from /<repo-name>/ on GitHub Pages.
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: [{
         path: '/',
         component: HelloWorld
